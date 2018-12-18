@@ -1,0 +1,19 @@
+Input "f(x)=",Str0
+Input "Guess: ",X
+Input "Precision: ",P
+Input "Max iterations: ",M
+
+Str0→Y₁
+"nDeriv("+Str0+",X,X)"→Y₂
+
+⁻1ᴇ10→Y:1ᴇ10→Z:1→N
+DelVar L₁:1→dim(L₁)
+While N<M and abs(Y-X)≥P
+:X→Y
+:X-Y₁/Y₂→X
+:X→L₁(N)
+:N+1→N
+:Disp X
+End
+
+Disp X

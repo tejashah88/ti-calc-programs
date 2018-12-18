@@ -1,0 +1,16 @@
+Input "Ideal value: ",N
+Input "Max percent error: ",S
+Input "Times to repeat: ",R
+
+ClrHome
+DelVar ʟFAKE:R→dim(ʟFAKE
+
+For(I,1,R)
+:randInt(0,1)→L
+:If not(L):⁻1→L
+:NL*rand*S/100+N→ʟFAKE(I
+:Disp Ans
+:If not(fPart(I/9)):Then
+::Pause :ClrHome
+:End
+End

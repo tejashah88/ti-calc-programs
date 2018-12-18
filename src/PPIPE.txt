@@ -1,0 +1,10 @@
+Input "x:",L₁
+Input "y:",L₂
+Input "z:",L₃
+{max(L₁)-min(L₁),0,0}→L₁
+{0,max(L₂)-min(L₂),0}→L₂
+{0,0,max(L₃)-min(L₃)}→L₃
+List►matr(L₁,L₂,L₃,[A])
+Disp [A]
+Disp det([A])
+Disp sum(L₁)*sum(L₂)*sum(L₃)

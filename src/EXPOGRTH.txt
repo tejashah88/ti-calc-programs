@@ -1,0 +1,8 @@
+Disp "y(t)=cb^(kt)"
+Input "b=",B
+Input "{x1,y1}:",L₁
+Input "{x2,y2}:",L₂
+
+(ln(L₁(2))-ln(L₂(2)))/(L₁(1)-L₂(1))→K
+L₁(2)/B^(L₁(1)*K)→C
+Disp "K=",K,"C=",C

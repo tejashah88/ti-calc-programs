@@ -1,0 +1,23 @@
+Input "A=",A
+Input "B=",B
+Input "C=",C
+Input "D=",D
+Input "E=",E
+Input "F=",F
+
+If not(B):Then
+:Disp "Already in standard form!"
+:Stop
+End
+
+R►Pθ((A-C)/B,1)/⁻2→θ
+Disp ⁻θ
+
+6→dim(ʟCONIC)
+(A+C)/2+((A-C)/2)cos(2θ)-B/2sin(2θ)→ʟCONIC(1)
+(A-C)sin(2θ)+Bcos(2θ)→ʟCONIC(2)
+(A+C)/2+((C-A)/2)cos(2θ)+B/2sin(2θ)→ʟCONIC(3)
+Dcos(θ)-Esin(θ)→ʟCONIC(4)
+Dsin(θ)+Ecos(θ)→ʟCONIC(5)
+F→ʟCONIC(6)
+Disp ʟCONIC

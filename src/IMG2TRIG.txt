@@ -1,0 +1,10 @@
+Ans→Z
+abs(Z)→R
+prgmNTOS
+"z="+Ans→Str0
+
+R►Pθ(real(Z),imag(Z))→θ
+If θ<0:θ+360→θ
+prgmNTOS
+Str0+"(cos("+Ans+")+[i]sin("+Ans+"))"
+Disp Ans

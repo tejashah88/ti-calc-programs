@@ -1,0 +1,11 @@
+DelVar ʟV1DelVar ʟV2
+
+Input "V1: ",ʟV1
+Input "V2: ",ʟV2
+
+ʟV1(2)ʟV2(3)-ʟV1(3)ʟV2(2)→A
+⁻1*(ʟV1(1)ʟV2(3)-ʟV1(3)ʟV2(1))→B
+ʟV1(1)ʟV2(2)-ʟV1(2)ʟV2(1)→C
+
+{A,B,C}→ʟV3
+Disp Ans

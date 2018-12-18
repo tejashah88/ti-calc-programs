@@ -1,0 +1,19 @@
+Input "Num of πeces: ",P
+"{→Str8:"{→Str9
+
+For(I,1,P)
+:Input "f(x)=",Str0
+:Str8+Str0→Str8
+:If I≠P:Str8+",→Str8
+:Input "Domain: ",Str0
+:Str9+Str0→Str9
+:If I≠P:Str9+",→Str9
+End
+
+Str8+"}→Str8
+Str9+"}→Str9
+Str8+"/"+Str9→Y₀
+
+DelVar Str8DelVar Str9DelVar Str0
+
+DispGraph

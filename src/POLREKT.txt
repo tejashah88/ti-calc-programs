@@ -1,0 +1,19 @@
+0→A
+Repeat A=1 or A=2
+:Input "Polar(1) or Rect(2): ",A
+:If A≠1 and A≠2:Disp "Error: Bad Input!"
+End
+
+If A=1:Then
+:Input "r=",R
+:Input "θ=",θ
+:P►Rx(R,θ)→X
+:P►Ry(R,θ)→Y
+:Disp {X,Y}
+Else
+:Input "x=",X
+:Input "y=",Y
+:R►Pr(X,Y)→R
+:R►Pθ(X,Y)→θ
+:Disp {R,θ}
+End

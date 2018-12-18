@@ -1,0 +1,18 @@
+a+bi
+Input "Z=",Z
+Input "Num Roots: ",N
+
+Nˣ√abs(Z)→R
+R►Pθ(real(Z),imag(Z))→θ
+N→dim(ʟROOTS)
+
+For(K,0,N-1)
+:(θ+360K)/N→A
+:R*(cos(A)+[i]sin(A))→ʟROOTS(K+1)
+:R:prgmNTOS
+:Ans→Str0
+:If A<0:A+360→A
+:A:prgmNTOS
+:Str0+"(cos("+Ans+")+[i]sin("+Ans+"))"→Str0
+:Disp Ans
+End

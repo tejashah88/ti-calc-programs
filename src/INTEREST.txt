@@ -1,0 +1,15 @@
+Input "Continuous? ",C
+If C:Then
+:Disp "I(t)=Ae^(rt)"
+:Input "A=",A
+:Input "r=",R
+:Input "t=",T
+:Disp round(Ae^(RT),2)
+Else
+:Disp "A(1+r/n)^(nt)"
+:Input "A=",A
+:Input "r=",R
+:Input "n=",N
+:Input "t=",T
+:Disp round(A(1+R/N)^(NT),2)
+End

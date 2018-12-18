@@ -1,0 +1,8 @@
+Input "f(x)=",Str0
+Str0→Y₀
+Input "g(x)=",Str0
+Str0→Y₉
+Input "Bounds {a,b}:",L₆
+Input "Rotate y=",A
+fnInt((A-Y₀)²-(A-Y₉)²,X,L₆(1),L₆(2))→B
+Disp B►Frac,"π"

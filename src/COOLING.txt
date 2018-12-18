@@ -1,0 +1,9 @@
+Disp "T=Ts+(Ti-Ts)e^(⁻Kt)"
+Input "Ts=",S
+Input "Ti=",I
+{0,I}→L₁
+Input "{x1,y1}:",L₂
+⁻ln((L₂(2)-S)/(I-S))/L₂(1)→K
+"S+(I-S)e^(⁻KX)→Y₁
+"ln((X-S)/(I-S))/⁻K→Y₂
+Disp "Y₁=f(t),Y₂=g(T)"

@@ -1,0 +1,11 @@
+ClrHome
+Input "f(x)=",Str0
+Input "{x,y}=",L₆
+Str0→Y₀:L₆(1)→X:L₆(2)→Y
+(abs(X)+ᴇ⁻6)ᴇ⁻6→T
+nDeriv(Y₀,X,X,T)→M
+(Y-M*X)→B
+
+Disp "Y=MX+B"
+Disp "M=",M►Frac
+Disp "B=",B►Frac

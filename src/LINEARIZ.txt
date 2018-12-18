@@ -1,0 +1,11 @@
+Disp "L(x)=f'(a)(x-a)+f(a)"
+Input "f(x)=",Str0
+Input "a=",A
+Str0→Y₁
+2→dim(L₆)
+nDeriv(Y₁,X,A)→M
+⁻M*A+Y₁(A)→B
+Disp "M=",M
+Disp "B=",B
+"MX+B→Y₁
+Disp "Y₁=L(x)"

@@ -1,0 +1,19 @@
+Input "f(x)=",Str0
+Input "lower=",A
+Input "upper=",B
+Input "n=",N
+
+Str0→Y₁
+7→dim(L₆)
+(B-A)/N→D
+
+seq(X,X,A,B-D,D→L₁
+seq(X,X,A+D,B,D→L₂
+Y₁(L₁→L₃:Y₁(L₂→L₄
+D*sum(L₃*(L₃≥L₄)+L₄*(L₃<L₄→L₆(1)
+D*sum(L₃*(L₃≤L₄)+L₄*(L₃>L₄→L₆(2)
+D*sum(Y₁(L₁→L₆(3)
+D*sum(Y₁(L₂→L₆(4)
+D*sum(Y₁(seq(X,X,A+D/2,B-D/2,D→L₆(5)
+
+Disp L₆

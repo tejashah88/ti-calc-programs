@@ -1,0 +1,52 @@
+Input "f(x)=",Str0
+Input "Degree: ",D
+Disp "Bounds: "
+Input L₆
+
+Lbl A
+D+1→D:Str0→Y₀
+seq(X,X,L₆(1),L₆(2),L₆(3))→L₁:dim(Ans)→N
+Disp "Number of data points:",N
+Disp "1/6"
+
+seq(Y₀,X,L₆(1),L₆(2),L₆(3))→L₂
+Disp "2/6"
+
+For(E,1,2D-2)
+:sum(L₁^E)→L₃(E)
+End
+Disp "3/6"
+
+0→dim(L₄)
+sum(L₂)→L₄(1)
+seq(Σ(L₂(X)*L₁(X)^E,X,1,N),E,1,D-1)
+augment(L₄,Ans)→L₄
+Disp "4/6"
+
+DelVar [A]{D,D}→dim([A])
+N→[A](1,1)
+List►matr(L₄,[B])
+Disp "5/6"
+
+0→P:D²→M
+For(R,1,D)
+:For(C,1,D)
+::If R+C≠2:L₃(R+C-2)→[A](R,C)
+:End
+End
+Disp "6/6"
+
+If det([A])=0:Then
+:Disp "Error: Not enough data!
+:Disp "Expanding ranges..."
+:L₆(1)*2→L₆(1)
+:L₆(2)*2→L₆(2)
+:L₆(3)/2→L₆(3)
+:Disp "Retrying..."
+:Goto A
+End
+
+[A]ˉ¹[B]→[C]
+Matr►list([C],L₅)
+round(seq(L₅(X),X,dim(L₅),1,⁻1),5)→L₅
+Disp Ans

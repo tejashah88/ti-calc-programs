@@ -1,0 +1,10 @@
+:DCS
+While 1
+":For(R,1,10)
+:randInt(0,255,4)→L₁
+:det(12,L₁(1),L₁(2),L₁(3),L₁(4))
+":randInt(1,10)→R
+:For(R,1,10)
+::Output(R,1,"DEM MEMES WAY TOO DANK M8!")
+:End
+End

@@ -1,0 +1,72 @@
+[CLASSIC]
+ClrHome:FnOff 
+Degree:AxesOff
+0→H
+Menu("INFORMATION?","SAS",1,"SSA",2,"ASA",3,"SAA",4,"SSS",5,"QUIT",6
+Lbl 1
+Disp "GIVE TWO SIDES","AND ANGLE BETW."
+Input "SIDE1=",A
+Input "SIDE2=",B
+Input "ANGLE3=",F
+√((A²+B²-2ABcos(F)))→C
+cos⁻¹((C²+B²-A²)/(2BC))→D
+180-D-F→E
+Goto B
+Lbl 2
+Disp "GIVE TWO SIDES","AND THE ANGLE","OPP. TO SIDE1"
+Input "SIDE1=",A
+Input "SIDE2=",B
+Input "ANGLE1=",D
+sin⁻¹(Bsin(D)/A)→E
+Lbl C
+If A<B and E≠90
+Then
+180-E→E
+H+1→H
+End
+180-D-E→F
+√(A²+B²-2ABcos(F))→C
+Goto B
+Lbl 3
+Disp "GIVE A SIDE AND","THE ADJ. ANGLES"
+Input "SIDE1=",A
+Input "ANGLE2=",E
+Input "ANGLE3=",F
+180-E-F→D
+Goto A
+Lbl 4
+Disp "GIVE A SIDE,THE","OPPOSITE AND ONE","ADJACENT ANGLE"
+Input "SIDE1=",A
+Input "OPP. ANGLE=",D
+Input "ADJ. ANGLE=",E
+180-D-E→F
+Lbl A
+Asin(E)/sin(D)→B
+Asin(F)/sin(D)→C
+Goto B
+Lbl 5
+Disp "GIVE THREE SIDES"
+Input "SIDE1=",A
+Input "SIDE2=",B
+Input "SIDE3=",C
+cos⁻¹((B²+C²-A²)/(2BC))→D
+cos⁻¹((A²+C²-B²)/(2AC))→E
+cos⁻¹((A²+B²-C²)/(2AB))→F
+Lbl B
+ClrDraw
+.5ABsin(F)→G
+If H
+Text(2,37,H," OF 2"
+Text(16,1,"SIDE1:A=",A
+Text(30,1,"SIDE2:B=",B
+Text(44,1,"SIDE3:C=",C
+Text(58,1,"ANGLE1:D=",D
+Text(72,1,"ANGLE2:E=",E
+Text(86,1,"ANGLE3:F=",F
+Text(100,1,"AREA:G=",G
+Pause 
+If H=1
+Goto C
+Lbl 6
+AxesOn:FnOn 
+Disp "END"

@@ -1,0 +1,10 @@
+:DCS
+ClrHome
+While 1
+:If getKey=45:ClrHome
+:randInt(0,255,2→L₁
+:det(12,255,255,L₁(1),L₁(2
+:randInt(1,10→R
+:randInt(1,26→C
+:Output(R,C," 
+End

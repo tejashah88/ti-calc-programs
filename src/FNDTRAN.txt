@@ -1,0 +1,168 @@
+ClrHome
+Disp "Intializing…"
+1→C
+
+ln(L₁)→L₃:ln(L₂)→L₄
+0→dim(L₅):L₅→L₆
+
+Disp "Fitting L₁ and L₂…"
+Fix 5
+LinReg(a+bx) L₁,L₂,Y₁
+Float
+max(abs(ʟRESID))→L₆(C)
+[r]→L₅(C):C+1→C
+
+Disp "Fitting L₁ and ln(L₂)…"
+Fix 5
+LinReg(a+bx) L₁,L₄,Y₂
+Float
+max(abs(ʟRESID))→L₆(C)
+[r]→L₅(C):C+1→C
+
+Disp "Fitting ln(L₁) and ln(L₂)…"
+Fix 5
+LinReg(a+bx) L₃,L₄,Y₃
+Float
+max(abs(ʟRESID))→L₆(C)
+[r]→L₅(C):C+1→C
+
+1ᴇ99→M
+For(C,1,3)
+:If min(L₆)=L₆(C) and M≠L₆(C):Then
+::L₆(C)→M
+::C→I
+:End
+End
+
+augment(L₅,L₆)→L₅
+DelVar L₆
+4→dim(L₆)
+
+max(L₁)-min(L₁)→L₆(1)
+max(L₂)-min(L₂)→L₆(2)
+max(L₃)-min(L₃)→L₆(3)
+max(L₄)-min(L₄)→L₆(4)
+
+ClrHome
+If I=1:"L₁ and L₂"
+If I=2:"L₁ and ln(L₂)"
+If I=3:"ln(L₁) and ln(L₂)"
+
+Disp "Best model: "
+Disp "
+Disp Ans
+Disp ""
+Disp "Would you like to see the"
+Disp "corrosponding plots?"
+Input "(Y/N): ",Str0
+
+If Str0≠"Y":Stop
+PlotsOff :FnOff :ClrHome
+
+Plot1(Scatter,L₁,L₂,·,BLUE)
+PlotsOn 1:FnOn 1
+ZoomStat:DispGraph
+Pause 
+PlotsOff :FnOff :ClrHome
+
+Equ►String(Y₁,Str0)
+Output(1,1,"L₁ and L₂")
+Output(2,1,Str0)
+Output(3,1,"X-Range=")
+Output(3,9,L₆(1))
+Output(4,1,"Y-Range=")
+Output(4,9,L₆(2))
+Output(5,1,"r=")
+Output(5,3,L₅(1))
+Output(6,1,"r²=")
+Output(6,4,L₅(1)²)
+Output(7,1,"Max resid=")
+Output(7,11,L₅(4))
+Pause 
+
+Plot2(Scatter,L₁,L₄,·,RED)
+PlotsOn 2:FnOn 2
+ZoomStat:DispGraph
+Pause 
+PlotsOff :FnOff :ClrHome
+
+Equ►String(Y₂,Str0)
+Output(1,1,"L₁ and ln(L₂)")
+Output(2,1,Str0)
+Output(3,1,"X-Range=")
+Output(3,9,L₆(1))
+Output(4,1,"Y-Range=")
+Output(4,9,L₆(4))
+Output(5,1,"r=")
+Output(5,3,L₅(2))
+Output(6,1,"r²=")
+Output(6,4,L₅(2)²)
+Output(7,1,"Max resid=")
+Output(7,11,L₅(5))
+Pause 
+
+Plot3(Scatter,L₃,L₄,·,BLACK)
+PlotsOn 3:FnOn 3
+ZoomStat:DispGraph
+Pause 
+PlotsOff :FnOff :ClrHome
+
+Equ►String(Y₃,Str0)
+
+Output(1,1,"ln(L₁) and ln(L₂)")
+Output(2,1,Str0)
+Output(3,1,"X-Range=")
+Output(3,9,L₆(3))
+Output(4,1,"Y-Range=")
+Output(4,9,L₆(4))
+Output(5,1,"r=")
+Output(5,3,L₅(3))
+Output(6,1,"r²=")
+Output(6,4,L₅(3)²)
+Output(7,1,"Max resid=")
+Output(7,11,L₅(6))
+Pause 
+
+ClrHome
+
+Disp "Least-squares regression"
+Disp "line equation:"
+If I=1:Then
+:Equ►String(Y₁,Str0)
+End
+
+If I=2:Then
+:Equ►String(Y₂,Str0)
+:"e^("+Str0+")"→Str0
+End
+
+If I=3:Then
+:Equ►String(Y₃,Str0)
+:"e^("+sub(Str0,1,length(Str0)-1)+"ln(X))"→Str0
+End
+
+Str0→Y₄:FnOff 
+Disp Str0
+Disp ""
+Disp "Would you like to see some"
+Disp "predicted values?"
+Input "(Y/N): ",Str0
+If Str0≠"Y":Stop
+
+ClrHome
+Disp "Enter an 'x' value to"
+Disp "calculate, or [i] to quit"
+
+0→X
+While not(imag(X))
+:Input "X=",X
+:If not(imag(X)):Then
+::{0,1}→L₅:{0,Y₄}→L₆
+::LinReg(ax+b) L₅,L₆,Y₀
+::FnOff 
+::Equ►String(Y₀,Str0)
+::Disp "Y="+sub(Str0,1,length(Str0)-3)
+:End
+End
+
+ClrHome

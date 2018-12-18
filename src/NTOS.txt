@@ -1,0 +1,5 @@
+"?
+For(X,1,1+int(log(abs(N
+sub("0123456789",iPart(10fPart(N/₁₀^(X)))+1,1)+Ans
+End
+sub(Ans,1,length(Ans)-1→Str1

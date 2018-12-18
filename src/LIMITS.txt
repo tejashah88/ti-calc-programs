@@ -1,0 +1,44 @@
+Input "f(x)=",Str0
+Str0→Y₁
+Input "L=",Str1
+
+not(not(inString(Str1,"+")))+2not(not(inString(Str1,"-")))→S
+If S:sub(Str1,1,length(Str1)-1)→Str1
+Str1→Y₂:Y₂→L
+
+ᴇ⁻11→E
+inString(Str0,"sin(") or inString(Str0,"cos(") or inString(Str0,"tan(")→T
+
+E+E*1ᴇ7*T→E
+E+E*10inString(Str0,"√(→E
+E+E*10inString(Str0,"abs(→E
+
+[i]→M:[i]→N:7→R
+If S≠2:round(Y₁(L+E),R→M
+If S≠1:round(Y₁(L-E),R→N
+
+{⁻1ᴇ10,1ᴇ10}→L₆
+If T:L₆/1ᴇ6→L₆
+
+{real(M)≤L₆(1),real(M)≥L₆(2),0→L₁:not(sum(L₁→L₁(3)
+{real(N)≤L₆(1),real(N)≥L₆(2),0→L₂:not(sum(L₂→L₂(3)
+
+If real(M)=real(N) and imag(M)=imag(N):Then
+:If L₁(1):Disp "-Inf"
+:If L₁(2):Disp "+Inf"
+:If L₁(3):Disp M
+Else
+:If S≠2:Then
+::Disp "+ side"
+::If L₁(1):Disp "-Inf"
+::If L₁(2):Disp "+Inf"
+::If L₁(3):Disp M
+:End
+:
+:If S≠1:Then
+::Disp "- side"
+::If L₂(1):Disp "-Inf"
+::If L₂(2):Disp "+Inf"
+::If L₂(3):Disp N
+:End
+End

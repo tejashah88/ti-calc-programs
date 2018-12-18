@@ -1,0 +1,8 @@
+Input "Y=",Str0
+Input "{low,high}=",L₆
+Input "Y0=",θ
+Str0→Y₀
+abs(fnInt((Y₀-2θ)Y₀,X,L₆(1),L₆(2)))
+Ans►Frac
+Disp Ans
+Disp "*π"

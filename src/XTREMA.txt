@@ -1,0 +1,9 @@
+Input "f(x)=",Str0
+Input "{a,b}=",L₆
+Str0→Y₀:L₆(1)→A:L₆(2)→B
+
+fMin(Y₀,X,A,B)→X:Y₀→Y
+Disp "MIN: ",X,Y
+
+fMax(Y₀,X,A,B)→X:Y₀→Y
+Disp "MAX: ",X,Y

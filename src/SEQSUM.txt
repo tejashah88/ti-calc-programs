@@ -1,0 +1,9 @@
+Input "Forμla: ",Str0
+Input "Starting term: ",B
+Input "Term count: ",C
+Str0→Y₀
+seq(Y₀,X,B,(B-1)+C,1)►Frac
+Ans→L₅
+cumSum(L₅)→L₆
+Disp L₅
+Disp L₆

@@ -1,0 +1,25 @@
+Disp "{min,max,res}"
+Input "X: ",L₁
+Input "Y: ",L₂
+Input "Z: ",L₃
+
+0→X
+For(I,L₁(1),L₁(2),L₁(3))
+:X+1→X
+End
+
+0→Y
+For(I,L₂(1),L₂(2),L₂(3))
+:Y+1→Y
+End
+
+0→Z
+For(I,L₃(1),L₃(2),L₃(3))
+:Z+1→Z
+End
+
+{X,Y,Z}→L₄
+
+Disp "Num of points:"
+Disp "{X,Y,Z}",L₄
+Disp "Total: ",prod(L₄)
